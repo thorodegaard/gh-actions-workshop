@@ -47,3 +47,31 @@ jobs:
             - name: Build
               # Run the build command
               run: npm run build
+
+    test_script_job:
+        name: Test-script-job 🧪
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print message to terminal
+              run: echo "Starting Test-script-job"
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm ci
+            - name: run-tests
+              # Run the test command
+              run: npm run test
+
+    lint_script_job:
+        name: Lint-script-job 🔎
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print message to terminal
+              run: echo "Starting Lint-script-job"
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm ci
+            - name: Run-lint
+              # Run the lint command
+              run: npm run lint:check
