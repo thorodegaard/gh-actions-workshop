@@ -28,7 +28,7 @@ jobs:
             - name: Print message to terminal
               run: echo "Hello 🌏!"
 
-    build:
+    build_job:
         name: build project 🛠️
         runs-on: ubuntu-latest
 
@@ -75,3 +75,18 @@ jobs:
             - name: Run-lint
               # Run the lint command
               run: npm run lint:check
+
+    post_comment_job:
+        name: Post-comment-at-the-end-job 🔎
+        runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
+        needs: [hello_world_job, build_job, test_script_job, lint_script_job]
+
+        steps:
+            - name: Post comment
+              uses: peter-evans/create-or-update-comment@v4
+              with:
+                  issue-number: ${{ github.event.pull_request.number }}
+                  body: |
+                      All jobs have finished! 🎉
