@@ -79,6 +79,8 @@ jobs:
     post_comment_job:
         name: Post-comment-at-the-end-job 🔎
         runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
         needs: [hello_world_job, build_job, test_script_job, lint_script_job]
 
         steps:
