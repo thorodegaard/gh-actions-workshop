@@ -1,0 +1,14 @@
+version: 2 # The version of the Dependabot config file format. Currently only v2 is supported, and the file _must_ start with `version: 2`.
+
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
