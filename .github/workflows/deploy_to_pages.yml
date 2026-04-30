@@ -50,6 +50,6 @@ jobs:
     needs: deploy-to-github-pages-job
     steps:
       - name: Run Lighthouse checks
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           urls: ${{ needs.deploy-to-github-pages-job.outputs.page_url }}
