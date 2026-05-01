@@ -6,11 +6,27 @@ on:
       message:
         type: string
         description: Input your message
+      lang-selector:
+        type: choice
+        description: Choose your language
+        options:
+          - English
+          - Norsk
 
 jobs:
-  hello-message-job:
-    name: Hello message (job)
+#  hello-message-job:
+#    name: Hello message (job)
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Print message to terminal (step)
+#        run: echo "Hello ${{ inputs.message }}!"
+
+  hello-english-job:
     runs-on: ubuntu-latest
-    steps:
-      - name: Print message to terminal (step)
-        run: echo "Hello ${{ inputs.message }}!"
+    if: inputs.lang-selector == 'English'
+    name: Hello ${{ inputs.message }} 🇬🇧"
+
+  hello_norsk_job:
+    runs-on: ubuntu-latest
+    if: inputs.lang-selector == 'Norsk'
+    name: Hei ${{ inputs.message }} 🇳🇴"
