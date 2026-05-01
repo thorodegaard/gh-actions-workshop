@@ -24,15 +24,15 @@ jobs:
   hello-english-job:
     runs-on: ubuntu-latest
     if: inputs.lang-selector == 'English'
-    name: Hello ${{ inputs.message }} 🇬🇧"
+    name: Hello ${{ inputs.message }} 🇬🇧-job
     steps:
       - name: print-english-step
-        run: echo Hello ${{ inputs.message }} 🇬🇧"
+        run: echo "Hello ${{ inputs.message }} 🇬🇧"
 
   hello_norsk_job:
     runs-on: ubuntu-latest
     if: inputs.lang-selector == 'Norsk'
-    name: Hei ${{ inputs.message }} 🇳🇴"
+    name: Hei ${{ inputs.message }} 🇳🇴-job
     steps:
       - name: print-norsk-step
         run: echo "Hei ${{ inputs.message }} 🇳🇴"
