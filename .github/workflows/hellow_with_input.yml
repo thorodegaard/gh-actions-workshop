@@ -1,0 +1,16 @@
+name: Workflow dispatch inputs and security verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        type: string
+        description: Input your message
+
+jobs:
+  hello-message-job:
+    name: Hello message (job)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message to terminal (step)
+        run: echo "Hello ${{ inputs.message }}!"
